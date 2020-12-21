@@ -6,13 +6,19 @@ import styled from 'styled-components';
 const Pages = ()=>{
     return(
         <div>         
-            <div style={{fontSize:40,fontWeight:'bold',marginLeft:40,position:'fixed',top:50}}>
+            <div style={{fontSize:32,fontWeight:'bold',marginLeft:40,position:'fixed',top:60}}>
                 <StyledLink to ="/">Studio Haena</StyledLink>
             </div>
             {/* 왼쪽 메뉴 */}
             <LeftContainer>
                 <Font>
-                    <div className="left">SHOP</div>
+                    <div className="left">
+                        <button style={{all:'unset'}} onClick={()=>{
+                            window.scrollTo(0,0)
+                        }}>
+                            SHOP
+                        </button>
+                    </div>
                 </Font>
                 <div style={{marginTop:30}}>
                     <Font>
@@ -117,7 +123,7 @@ const Pages = ()=>{
 }
 
 
-const StyledLink = styled(Link)`
+export const StyledLink = styled(Link)`
     text-decoration:none;
     color:black;
     &:focus, &:hover, &:visited, &link, &:active{
@@ -130,16 +136,16 @@ const Font=styled.div`
         ${(props)=>props.theme.m_font}
         margin-top:10px;
          &:hover{
-            transition:all 0.3s ease-in-out;
-            color:red;
+            transition:all 0.1s ease-in-out;
+            color:${(props)=>props.theme.gray_1};
         }
     }
     .right{
         ${(props)=>props.theme.m_font}
         margin-left:30px;
          &:hover{
-            transition:all 0.3s ease-in-out;
-            color:red;
+            transition:all 0.1s ease-in-out;
+            color:${(props)=>props.theme.gray_1};
         }
     }
 `
@@ -156,7 +162,7 @@ const LeftContainer =styled.div`
 const RightContainer = styled.div`
     display:flex;
     position:fixed;
-    top:15vh;
+    top:10vh;
     right:5vw;
     
 `

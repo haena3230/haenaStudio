@@ -9,11 +9,13 @@ const size={
 
 
 const theme={
-    b_color:"000000",
-    g_color:"9F9F9F",
+    black:"#000000",
+    gray_1:"#9A9A9A",
+    gray_2:'#EEEEEE',
+    blue_1:"#263A6C",
     b_font:{
         fontWeight:'bold',
-        fontSize:20,
+        fontSize:18,
     },
     m_font:{
         fontWeight:'bold',
@@ -24,6 +26,9 @@ const theme={
     },
     s_font:{
         fontWeight:'bold',
+        fontSize:13,
+    },
+    s_th_font:{
         fontSize:13,
     },
     

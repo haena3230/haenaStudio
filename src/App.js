@@ -16,8 +16,8 @@ function App() {
     <div>
       <Route path="/" component={MainPage} exact/>
       <Route path="/login" component={LoginPage}/>
-      <Route path="/product/:category" component={ProductPage}/>
-      <Route path="/product/:category/:item" component={ProductDetailPage}/>
+      <Route path="/product/:category" component={ProductPage} exact/>
+      <Route path="/product/:category/:productId" component={ProductDetailPage} />
       <Route path="/board/:board" component={BoardPage}/>
       <Route path="/profile/:userName" component={MyPage}/>
       <Route path="/" component={Pages}/>

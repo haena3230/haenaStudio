@@ -1,6 +1,8 @@
 // 상품 페이지
 import React,{useState,useEffect} from 'react';
 import styled from 'styled-components';
+import Bottom from 'Components/Bottom';
+import {StyledLink} from 'Pages';
 import product1 from 'Assets/product.jpg';
 import product2 from 'Assets/product2.jpg';
 import product3 from 'Assets/product3.jpg';
@@ -56,10 +58,10 @@ const ProductPage =({match})=>{
     }
     return(
         <div>
-           
             <Container>
                 <Title>
-                     <div className="font">{productCategory.name}</div>
+                     <StyledLink to ={`/product/${category}`}><div className="font">{productCategory.name}</div></StyledLink>
+                     
                 </Title>
                 <Bar>
                     <div className="font">Total : {itemList.length} Items</div>
@@ -84,15 +86,17 @@ const ProductPage =({match})=>{
                 <ItemContainer>
                     {currentPosts(itemList).map((itemlist)=>{
                         return(
-                            
                                 <div className={"item"} key ={itemlist.id}>
-                                    <img src={itemlist.image} width='100%' alt=''/>
-                                    <div className={"info"}>
-                                        <div>{itemlist.productName}</div>
-                                        <div>{itemlist.price} won</div>
-                                    </div>
-                                </div>
-                            
+                                    <StyledLink to={`/product/${category}/${itemlist.id}`}>
+                                        <img src={itemlist.image} width='100%' alt=''/>
+                                        <div className={"info"}>
+                                            <div>{itemlist.productName}</div>
+                                        </div>
+                                        <div className={"infoprice"}>
+                                            <div>{itemlist.price}</div>
+                                        </div>
+                                    </StyledLink>
+                                </div>                           
                         )
                     })}
                 </ItemContainer>
@@ -100,6 +104,7 @@ const ProductPage =({match})=>{
                     {[...Array(paginate)].map((n,index)=>{
                         return(
                             <div>
+                                {/* 최대 다섯개, > >> */}
                                 {currentPage===index+1?(
                                     <div className="numPicked">{index+1}</div>
                                 ):(
@@ -117,63 +122,14 @@ const ProductPage =({match})=>{
                         
                     })} 
                 </Index>
-                <Bottom>
-                    <div className={"container"}>
-                        <div className={"title"}>
-                            BANK INFO
-                        </div>
-                        <div className={"description"}>
-                            무통장계좌                  
-                        </div>
-                        <div className={"description"}>
-                            농협은행                      
-                        </div>
-                        <div className={"description"}>
-                           1094-12-029160                        
-                        </div>
-                    </div>
-                    <div className={"container"}>
-                        <div className={"title"}>
-                            CS CENTER
-                        </div>
-                        <div className={"description"}>
-                            010-1234-1234                   
-                        </div>
-                        <div className={"description"}>
-                            평일 14:00~19:00           
-                        </div>
-                        <div className={"description"}>
-                            토,일 공휴일 휴무                     
-                        </div>
-                    </div>
-                    <div className={"container"}>
-                        <div className={"title"}>
-                            Delivery
-                        </div>
-                        <div className={"description"}>
-                            배송조회
-                        </div>
-                    </div>
-                    <div className={"container"}>
-                        <div className={"title"}>
-                            SNS
-                        </div>
-                        <div className={"descriptionBlock"}>
-                            instagram
-                        </div>
-                        <div className={"descriptionBlock"}>
-                            facebook
-                        </div>
-                        
-                    </div>
-
-                </Bottom>
+                <Bottom />
+                
             </Container>
         </div>
     )
 }
 
-const Container = styled.div`
+export const Container = styled.div`
     width:85%;
     height:100%;
     display:flex;
@@ -183,7 +139,7 @@ const Container = styled.div`
     right:3vw;
     bottom:0;
 `
-const Title=styled.div`
+export const Title=styled.div`
     width:90%;
     height:20px;
     padding:20px;
@@ -212,15 +168,10 @@ const Bar = styled.div`
 `
 const Sorting =styled.button`
     all:unset;
-    color:black;
+    color: ${(props)=>props.theme.black};
     padding:10px;
     display:flex;
     justify-content:center;
-    &:hover{
-        transition:all 0.3s ease-in-out;
-        background-color:gray;
-        color:#fff;
-    }
     .font{
         ${(props)=>props.theme.s_font};
     }
@@ -238,15 +189,23 @@ const ItemContainer=styled.div`
         padding:3%;
     }    
     .info{
+        padding-top:10px;
         display:flex;
         flex-flow:column;
         align-items: center;
         justify-content: center;
-        ${(props)=>props.theme.s_font};
-
+        ${(props)=>props.theme.b_font};
+    }
+    .infoprice{
+        display:flex;
+        flex-flow:column;
+        align-items: center;
+        justify-content: center;
+        ${(props)=>props.theme.m_font};
+        color:${(props)=>props.theme.gray_1};
     }
 `
-const Index=styled.div`
+export const Index=styled.div`
     width:100%;
     padding:5% 0 5% 0;
     display:flex;
@@ -255,48 +214,18 @@ const Index=styled.div`
     .num{
         ${(props)=>props.theme.m_th_font};
         padding:5px;
-        &:hover{
-            cursor:pointer;
-            border-bottom:1px solid black;
-        }
     }
     .numPicked{
-        color:white;
-        background-color:#263A6C;
         padding:5px;
+        border-bottom:1px solid black;
         }
     }
 `
 
-const Bottom=styled.div`
-    width:100%;
-    padding:5% 0 5% 0;
-    display:flex;
-    align-items: start;
-    justify-content:space-around;
-    .container{
-        display:flex;
-        flex-flow:column;
-        align-items: center;
-        justify-content: center;
-    }
-    .title{
-        ${(props)=>props.theme.b_font};
-        padding:20px;
-    }
-    .description{
-        ${(props)=>props.theme.s_font};
-    }
-    .descriptionBlock{
-        ${(props)=>props.theme.s_font};
-        padding:5px;
-    }
-
-`
 export default ProductPage;
 
 const test=[
-    {id:1, productName:'item1', image:product1, price:'20,000'},
+    {id:1, productName:'Woo; Maxi Pants', image:product1, price:'20,000'},
     {id:2, productName:'item2', image:product2, price:'30,000'},
     {id:3, productName:'item3', image:product3, price:'20,000'},
     {id:4, productName:'item4', image:product4, price:'50,000'},
