@@ -60,8 +60,7 @@ const ProductPage =({match})=>{
         <div>
             <Container>
                 <Title>
-                     <StyledLink to ={`/product/${category}`}><div className="font">{productCategory.name}</div></StyledLink>
-                     
+                     <StyledLink to ={`/main/product/${category}`}><div className="font">{productCategory.name}</div></StyledLink>
                 </Title>
                 <Bar>
                     <div className="font">Total : {itemList.length} Items</div>
@@ -87,7 +86,7 @@ const ProductPage =({match})=>{
                     {currentPosts(itemList).map((itemlist)=>{
                         return(
                                 <div className={"item"} key ={itemlist.id}>
-                                    <StyledLink to={`/product/${category}/${itemlist.id}`}>
+                                    <StyledLink to={`/main/product/${category}/${itemlist.id}`}>
                                         <img src={itemlist.image} width='100%' alt=''/>
                                         <div className={"info"}>
                                             <div>{itemlist.productName}</div>
@@ -212,7 +211,7 @@ export const Index=styled.div`
     align-items: center;
     justify-content: center;
     .num{
-        ${(props)=>props.theme.m_th_font};
+        ${(props)=>props.theme.m_font};
         padding:5px;
     }
     .numPicked{

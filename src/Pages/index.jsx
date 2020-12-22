@@ -7,7 +7,7 @@ const Pages = ()=>{
     return(
         <div>         
             <div style={{fontSize:32,fontWeight:'bold',marginLeft:40,position:'fixed',top:60}}>
-                <StyledLink to ="/">Studio Haena</StyledLink>
+                <StyledLink to ="/main">Studio Haena</StyledLink>
             </div>
             {/* 왼쪽 메뉴 */}
             <LeftContainer>
@@ -22,35 +22,35 @@ const Pages = ()=>{
                 </Font>
                 <div style={{marginTop:30}}>
                     <Font>
-                        <StyledLink to ="/product/new_arrivals">
+                        <StyledLink to ="/main/product/new_arrivals">
                             <div className="left">
                                 NEW ARRIVALS
                             </div>
                         </StyledLink>
                     </Font>
                     <Font>
-                        <StyledLink to ="/product/out_wears">
+                        <StyledLink to ="/main/product/out_wears">
                             <div className="left">
                                 OUT WEARS
                             </div>
                         </StyledLink>
                     </Font>
                     <Font>
-                        <StyledLink to ="/product/top">
+                        <StyledLink to ="/main/product/top">
                             <div className="left">
                                 TOP
                             </div>
                         </StyledLink>
                     </Font>
                     <Font>
-                        <StyledLink to ="/product/bottom">
+                        <StyledLink to ="/main/product/bottom">
                             <div className="left">
                                 BOTTOM
                             </div>
                         </StyledLink>
                     </Font>
                     <Font>
-                        <StyledLink to ="/product/acc">
+                        <StyledLink to ="/main/product/acc">
                             <div className="left">
                                 ACC
                             </div>
@@ -58,7 +58,7 @@ const Pages = ()=>{
                     </Font>
                 </div>
                 <Font>
-                    <StyledLink to ="/product/sale">
+                    <StyledLink to ="/main/product/sale">
                         <div className="left">
                             SALE
                         </div>
@@ -66,21 +66,21 @@ const Pages = ()=>{
                 </Font>
                 <div style={{marginTop:30}}>
                     <Font>
-                        <StyledLink to ="/board/notice">
+                        <StyledLink to ="/main/board/notice">
                             <div className="left"> 
                                 NOTICE
                             </div>
                         </StyledLink>
                     </Font>
                     <Font>
-                        <StyledLink to ="/board/qna">
+                        <StyledLink to ="/main/board/qna">
                             <div className="left"> 
                                 Q&A
                             </div>
                         </StyledLink>
                     </Font>
                     <Font>
-                        <StyledLink to ="/board/review">
+                        <StyledLink to ="/main/board/review">
                             <div className="left"> 
                             REVIEW
                             </div>
@@ -97,14 +97,14 @@ const Pages = ()=>{
                         </StyledLink>
                     </Font>
                     <Font>
-                        <StyledLink to ="/profile/user1">
+                        <StyledLink to ="/main/register">
                             <div className="right">
                                 REGISTER
                             </div>
                         </StyledLink>
                     </Font>
                      <Font >
-                         <StyledLink to ="/profile/user1">
+                         <StyledLink to ="/main/profile/user1">
                             <div className="right">
                                 BAG
                             </div>
@@ -150,7 +150,7 @@ const Font=styled.div`
     }
 `
 const LeftContainer =styled.div`
-    width:20vw;
+    width:15vw;
     margin-left:40px;
     position:fixed;
     top:20vh;

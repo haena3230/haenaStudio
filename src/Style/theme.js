@@ -14,18 +14,12 @@ const theme={
     gray_2:'#EEEEEE',
     blue_1:"#263A6C",
     b_font:{
-        fontWeight:'bold',
         fontSize:18,
     },
     m_font:{
-        fontWeight:'bold',
-        fontSize:15,
-    },
-    m_th_font:{
         fontSize:15,
     },
     s_font:{
-        fontWeight:'bold',
         fontSize:13,
     },
     s_th_font:{
