@@ -2,18 +2,15 @@
 import React,{useState} from 'react';
 import styled from 'styled-components';
 import CloseIcon from '@material-ui/icons/Close';
-import {StyledLink} from '../index';
 
 
-const LoginPage =()=>{
+const LoginPage =(props)=>{
     const[id,setId]=useState('');
     const[pass,setPass]=useState('');
     return(
         <Container>
             <Exit>
-                <button style={{all:'unset'}} onClick={()=>{
-                    window.history.back()
-                }}>
+                <button style={{all:'unset'}} onClick={props.onClickExit}>
                     <CloseIcon style={{ fontSize: 40 }} color="disabled"/>
                 </button>
             </Exit>
@@ -72,13 +69,14 @@ const Exit=styled.div`
 `
 
 const Container = styled.div`
-    width:100%;
+    width:100vw;
     height:100vh;
     display:flex;
     align-items:center;
     flex-flow:column;
     position:fixed;
     top:30vh;
+    background-color:white;
     .input{
         width:30%;
         padding-top:10px;

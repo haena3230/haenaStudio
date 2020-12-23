@@ -1,13 +1,16 @@
 // 기본 틀
-import React from 'react';
+import React,{useState} from 'react';
 import {Link} from 'react-router-dom';
 import styled from 'styled-components';
+import Modal from 'react-modal';
+import LoginPage from './LoginPage';
 
 const Pages = ()=>{
+    const[login,setLogin]=useState(false);
     return(
         <div>         
             <div style={{fontSize:32,fontWeight:'bold',marginLeft:40,position:'fixed',top:60}}>
-                <StyledLink to ="/main">Studio Haena</StyledLink>
+                <StyledLink to ="/">Studio Haena</StyledLink>
             </div>
             {/* 왼쪽 메뉴 */}
             <LeftContainer>
@@ -90,11 +93,21 @@ const Pages = ()=>{
                 {/* 상단 메뉴 */}
                 <RightContainer>
                     <Font>
-                        <StyledLink to ="/login">
-                            <div  className="right">
-                                LOGIN
+                        <button style={{all:'unset'}} onClick={()=>{
+                            setLogin(true);
+                        }}>
+                            <div className="right">
+                                    LOGIN
                             </div>
-                        </StyledLink>
+                        </button>
+                        <Modal
+                            isOpen={login}
+                            onRequestClose={()=>setLogin(false)}
+                            style={customStyles}
+                            contentLabel="Example Modal"
+                            >
+                            <LoginPage onClickExit={()=>setLogin(false)}/>                     
+                        </Modal>
                     </Font>
                     <Font>
                         <StyledLink to ="/main/register">
@@ -104,7 +117,7 @@ const Pages = ()=>{
                         </StyledLink>
                     </Font>
                      <Font >
-                         <StyledLink to ="/main/profile/user1">
+                         <StyledLink to ="/main/profile">
                             <div className="right">
                                 BAG
                             </div>
@@ -166,5 +179,16 @@ const RightContainer = styled.div`
     right:5vw;
     
 `
+
+const customStyles = {
+  content : {
+    top: '0',
+    left: '0',
+    right: '100%',
+    bottom: '100%',
+    width:'100%',
+    height:'100%',
+  }
+};
 
 export default Pages;

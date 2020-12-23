@@ -8,7 +8,6 @@ import background1 from 'Assets/background2.jpg';
 import background3 from 'Assets/background3.jpg';
 
 
-
 const Slider=()=>{
     const [currentSlide, setCurrentSlide] = useState(33.5);
     const slideRef = useRef(null);
@@ -23,10 +22,14 @@ const Slider=()=>{
     }
     // 선택했는가
     const [isOne,setIsOne]=useState(false);
+
     useEffect(() => {
         slideRef.current.style.transition = "all 0.5s ease-in-out";
         slideRef.current.style.transform = `translateY(-${currentSlide}%)`;
-        
+        setTimeout(function time(){
+            if(currentSlide===67) setCurrentSlide(0)
+            else setCurrentSlide(currentSlide+33.5)
+        }, 5000); 
     }, [currentSlide]);
     return (
         <Container>
@@ -63,6 +66,15 @@ const Slider=()=>{
         </Container>
     );
 }
+
+
+// 내부 이미지
+const Slide =({img})=>{
+    return(
+        <IMG src={img} alt=''/>
+    )
+}
+
 const Container=styled.div`
     width:100%;
     height:100vh;
@@ -101,14 +113,7 @@ const ButtonContainer=styled.div`
 `
 const SliderContainer = styled.div`
   width: 100%;  
-`;
-
-// 내부 이미지
-const Slide =({img})=>{
-    return(
-        <IMG src={img} alt=''/>
-    )
-}
+`
 
 const IMG = styled.img`
     width:100%;
