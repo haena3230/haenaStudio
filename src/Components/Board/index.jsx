@@ -129,7 +129,7 @@ const ListContainer=styled.div`
         height:40px;
         display:flex;
         flex-flow:row;
-        ${(props)=>props.theme.s_th_font};
+        ${(props)=>props.theme.s_font};
         border-top:1px solid ${(props)=>props.theme.gray_1};
      
     }

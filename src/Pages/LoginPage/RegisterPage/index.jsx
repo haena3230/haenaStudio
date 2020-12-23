@@ -1,6 +1,6 @@
 import React,{useState} from 'react'
 import styled from 'styled-components';
-import {Container, Title} from 'Pages/MainPage/ProductPage';
+import {PageContainer,Container, Title} from 'Pages/MainPage/ProductPage';
 import Bottom from 'Components/Bottom';
 import ButtonCom from 'Components/Button';
 
@@ -13,7 +13,7 @@ const RegisterPage=()=>{
     const[email,setEmail]=useState('');
 
     return(
-
+        <PageContainer>
         <Container>
             <Title>
                 회원가입
@@ -63,19 +63,24 @@ const RegisterPage=()=>{
                 </div>
             </Box>
             <Market>
-                    여기는 마케팅 수신 정보 들어갈곳 뭔가 법적으로 규제가 있으니 꼼꼼히 확인해보고 조항 만들어야할듯
+                    여기는 마케팅 수신 정보 들어갈곳
             </Market>
-            <ButtonCom text={'가입하기'} onClick={()=>alert('준비중')}/>
-            <Bottom />
+            <div style={{width:'80%',display:'flex',justifyContent:'flex-end'}}>
+                <ButtonCom text={'가입하기'} onClick={()=>alert('준비중')}/>
+            </div>
+            
         </Container>
+        <Bottom />
+    </PageContainer>
     )
 }
 const Box = styled.div`
-    width:70%;
+    width:80%;
     display:flex;
     flex-flow:column;
     border-top:1px solid ${(props)=>props.theme.gray_1};
     margin-top:60px;
+    justify-content:center;
     .List{
         display:flex;
         flex-flow:row;
@@ -93,6 +98,7 @@ const Box = styled.div`
     }
 `
 const Market=styled.div`
+    width:80%;
     border:1px solid ${(props)=>props.theme.gray_1};
     margin-top:30px;
 `

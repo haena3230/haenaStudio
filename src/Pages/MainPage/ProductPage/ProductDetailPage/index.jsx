@@ -15,6 +15,7 @@ import CancelPresentationIcon from '@material-ui/icons/CancelPresentation';
 import Bottom from 'Components/Bottom';
 import Board from 'Components/Board';
 import ButtonCom from 'Components/Button';
+import {PageContainer} from '../index';
 
 // 이미지
 import product1 from 'Assets/product.jpg';
@@ -46,6 +47,7 @@ const ProductDetailPage=({match})=>{
     // 선택시
     const[count,setCount]=useState(0);
     return(
+        <PageContainer>
             <Container>
                 <Contain>
                     <Left>
@@ -216,8 +218,9 @@ const ProductDetailPage=({match})=>{
                         </RightBottom>
                     </Right>
                 </Contain>
-                <Bottom />
             </Container>
+            <Bottom />
+        </PageContainer>
     );
 }
 
@@ -262,17 +265,14 @@ const Contain=styled.div`
     flex-flow:row;
 `
 const Container=styled.div`
-    width:77%;
+    width:80%;
     height:100%;
     display:flex;
     flex-flow:column;
     align-items:center;
-    position:absolute;
-    right:3vw;
-    bottom:0;
 `
 const Left=styled.div`
-    width:60%;
+    width:55%;
     height:100%;
     margin-top:7vh;
     display:flex;

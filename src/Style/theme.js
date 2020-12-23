@@ -22,8 +22,8 @@ const theme={
     s_font:{
         fontSize:13,
     },
-    s_th_font:{
-        fontSize:13,
+    ss_font:{
+        fontSize:10,
     },
     
     mobile:`(max-width:${size.mobile})`,

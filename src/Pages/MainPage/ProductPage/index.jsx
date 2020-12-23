@@ -57,7 +57,7 @@ const ProductPage =({match})=>{
         return <div>존재하지 않는 페이지 입니다.</div>
     }
     return(
-        <div>
+        <PageContainer>
             <Container>
                 <Title>
                      <StyledLink to ={`/main/product/${category}`}><div className="font">{productCategory.name}</div></StyledLink>
@@ -118,25 +118,24 @@ const ProductPage =({match})=>{
                                 )} 
                             </div>
                             )
-                        
                     })} 
-                </Index>
-                <Bottom />
-                
-            </Container>
-        </div>
+                </Index>             
+            </Container> 
+            <Bottom />
+        </PageContainer>
     )
 }
-
+export const PageContainer = styled.div`
+    width:100%;
+    height:100%; 
+    display:flex; 
+    align-items:flex-end;
+    flex-flow:column;
+`
 export const Container = styled.div`
-    width:85%;
-    height:100%;
+    width:80%;
     display:flex;
     flex-flow:column;
-    align-items:center;
-    position:absolute;
-    right:3vw;
-    bottom:0;
 `
 export const Title=styled.div`
     width:90%;
@@ -150,7 +149,6 @@ export const Title=styled.div`
     }
 `
 const Bar = styled.div`
-    
     height:20px;
     width:90%;
     display:flex;
@@ -176,16 +174,16 @@ const Sorting =styled.button`
     }
 `
 const ItemContainer=styled.div`
-    width:100%;
+    width:90%;
     display:flex;
     flex-flow:row wrap; 
-    justify-content:flex-start;
-    padding-left:3%;
+    justify-content:space-around;
+    padding-left:10px;
+    margin-top:30px;
     .item{
         diplay:flex;
         justify-content:center;
         width:26%;
-        padding:3%;
     }    
     .info{
         padding-top:10px;
@@ -206,7 +204,7 @@ const ItemContainer=styled.div`
 `
 export const Index=styled.div`
     width:100%;
-    padding:5% 0 5% 0;
+    padding-top:30px;
     display:flex;
     align-items: center;
     justify-content: center;

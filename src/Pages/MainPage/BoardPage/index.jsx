@@ -1,6 +1,6 @@
 // 게시글
 import React from 'react';
-import {Container} from '../ProductPage';
+import {Container,PageContainer} from '../ProductPage';
 import Bottom from 'Components/Bottom';
 import Board from 'Components/Board';
 import ButtonCom from 'Components/Button';
@@ -22,15 +22,20 @@ const BoardPage =({match})=>{
     const boardCategory = data[board];
 
     return(
+        <PageContainer>
         <Container>
             <div style={{width:'80%',marginTop:'17vh'}}>
                 <Board boardname={boardCategory.name} boarddata={boarddata}/>
             </div>
             {boardCategory.name==='Q&A'?(
-               <ButtonCom text={'작성하기'} onClick={()=>alert('test')}/>
+                <div style={{width:'80%',display:'flex',justifyContent:'flex-end'}}>
+                    <ButtonCom text={'작성하기'} onClick={()=>alert('test')}/>
+                </div>
+               
             ):null}
-            <Bottom />
         </Container>
+        <Bottom />
+        </PageContainer>
     )
 }
 

@@ -1,7 +1,7 @@
 // 장바구니 페이지
 import React,{useState,useEffect} from 'react';
 import styled from 'styled-components';
-import {Container} from 'Pages/MainPage/ProductPage';
+import {Container,PageContainer} from 'Pages/MainPage/ProductPage';
 import Bottom from 'Components/Bottom';
 import AddIcon from '@material-ui/icons/Add';
 import RemoveIcon from '@material-ui/icons/Remove';
@@ -23,6 +23,7 @@ const BagPage=()=>{
         setTotal(testSecond);
     },[])
     return(
+        <PageContainer>
         <Container>
             <Title>
                 장바구니({total.totalCount})
@@ -84,9 +85,9 @@ const BagPage=()=>{
         <div style={{display:'flex', justifyContent:'flex-end', width:'85%'}}>
             <Button text="주문하기" onClick={()=>{alert('준비중')}}/>
         </div>
-
-        <Bottom />
     </Container>
+    <Bottom />
+    </PageContainer>
     )
 }
 
