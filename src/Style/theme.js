@@ -17,10 +17,10 @@ const theme={
         fontSize:18,
     },
     m_font:{
-        fontSize:15,
+        fontSize:16,
     },
     s_font:{
-        fontSize:13,
+        fontSize:12,
     },
     ss_font:{
         fontSize:10,
