@@ -1,7 +1,5 @@
 ### react web 개발 연습
 
-<<<<<<< HEAD
-
 쇼핑몰 레이아웃
 
 ### Quick Start
